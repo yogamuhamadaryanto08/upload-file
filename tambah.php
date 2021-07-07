@@ -1,16 +1,16 @@
 <?php 
 require '../fungsi.php';
 if (isset($_POST['kirim'])) {
-if (tambah2($_POST)>0) {
+if (tambah3($_POST)>0) {
 	echo "<script>
 			alert('berhasil ditambah');
-			document.location.href='pustakawan.php';
+			document.location.href='transaksi.php';
 		</script>";
 }
 else{
 		echo "<script>
 			alert('gagal ditambah');
-			document.location.href='pustakawan.php';
+			document.location.href='transaksi.php';
 		</script>";
 }
 }
@@ -21,13 +21,12 @@ else{
  <head>
  	<title></title>
  	<style type="text/css">
- 		*{
-      margin: 0;
-      padding: 0;
-      font-family: sans-serif;
-    }
-
-
+ 		
+*{
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+}
     table{
  			background-color: blue;
  		}
@@ -77,26 +76,34 @@ button{
 
  </head>
  <body>
- 	 <div class="t"><button><a href="../index.html">halaman awal</a></button>||<button><a href="tambah.php">Tambah data</a></button></div>
+ 	 <div class="t"><button><a href="../index.html">halaman awal</a></button>||<button><a href="transaksi.php">Kembali</a></button></div>
  	<center>
  		<form action="" method="POST">
  <table>
- 	<tr>
- 		<td>Kode pustakawan</td>
- 		<td><input type="text" name="a" maxlength="10" required autofocus></td>
+ 		<tr>
+ 		<td>Kode pustaka</td>
+ 		<td><input type="text" name="a" maxlength="10" required autofocus=""></td>
  	</tr>
  		<tr>
- 		<td>Nama pustakawan</td>
- 		<td><input type="text" name="b" maxlength="40" required></td>
+ 		<td>Nomor anggota</td>
+ 		<td><input type="text" name="b" maxlength="10" required></td>
  	</tr>
  		<tr>
- 		<td>Password</td>
- 		<td><input type="password" name="c" maxlength="30" required></td>
+ 		<td>Kode pustakawan pinjam</td>
+ 		<td><input type="text" name="c" maxlength="10" required></td>
  	</tr>
  		<tr>
- 		<td>Tanggal</td>
- 		<td><input type="date" name="d" maxlength="15" required></td>
- 	</tr>
+ 		<td>Tanggal pinjam</td>
+ 		<td><input type="date" name="d" maxlength="10" required></td>
+  </tr>
+      <tr>
+    <td>Kode pustakawan kembali</td>
+    <td><input type="text" name="e" maxlength="10" required></td>
+  </tr>
+      <tr>
+    <td>Tanggal kembali</td>
+    <td><input type="date" name="f" maxlength="15" required></td>
+  </tr>
  		<tr>
  			<td></td>
  			<td><button type="submit" name="kirim">kirim</button></td>
