@@ -1,20 +1,20 @@
 <?php 
 require '../fungsi.php';
-$no=$_GET['no'];
-$cek= mysqli_query($koneksi,"SELECT * FROM anggota WHERE nomoranggota='$no'");
+$no=$_GET['no1'];
+$cek= mysqli_query($koneksi,"SELECT * FROM pustaka WHERE kodepustaka='$no'");
 
 
  if (isset($_POST['kirim'])) {
-if (ubah($_POST)>0) {
+if (ubah1($_POST)>0) {
 	echo "<script>
 			alert('berhasil dirubah');
-			document.location.href='anggota.php';
+			document.location.href='pustaka.php';
 		</script>";
 }
 else{
 		echo "<script>
 			alert('gagal dirubah');
-			document.location.href='anggota.php';
+			document.location.href='pustaka.php';
 		</script>";
 }
 }
@@ -25,11 +25,11 @@ else{
  <head>
  	<title></title>
  	<style type="text/css">
-*{
-  padding: 0;
-  margin: 0;
-}
-
+    *{
+      margin: 0;
+      padding: 0;
+      font-family: sans-serif;
+    }
  		table{
  			background-color: blue;
  		}
@@ -58,8 +58,8 @@ body{
       	font-style: italic;
       }
 
-button.a,button.b{
-	background-color: black;
+button{
+	background-color: green;
 	color: white;
 }
    .t{
@@ -72,40 +72,36 @@ button.a,button.b{
       	text-decoration: none;
       	color: white;
       }
-td{
-  color: white;
-}
+
 
  	</style>
-   <meta charset="utf-8">
+ <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
-
  </head>
  <body>
- 	 <div class="t"><button class="a"><a href="anggota.php">Kembali</a></button>||<button class="b"><a href="../index.html">Halaman awal</a></button></div>
+ 	 <div class="t"><button><a href="pustaka.php">Kembali</a></button>||<button><a href="../index.html">Halaman awal</a></button></div>
  	<center>
  		<form action="" method="POST">
  <table>
  	<?php $row=mysqli_fetch_assoc($cek);{ ?>
  	<tr>
- 		<td><input type="hidden" name="a" maxlength="10" required autofocus value="<?php echo $row['nomoranggota']; ?>"></td>
+ 		<td><input type="hidden" name="a" maxlength="10" required autofocus value="<?php echo $row['kodepustaka']; ?>"></td>
  	</tr>
  		<tr>
- 		<td>Nama anggota</td>
- 		<td><input type="text" name="b" maxlength="40" required value="<?php echo $row['namaanggota']; ?>"></td>
+ 		<td>Judul pustaka</td>
+ 		<td><input type="text" name="b" maxlength="40" required value="<?php echo $row['judulpustaka']; ?>"></td>
  	</tr>
  		<tr>
- 		<td>Alamat</td>
- 		<td><input type="text" name="c" maxlength="40" required value="<?php echo $row['alamat']; ?>"></td>
+ 		<td>Pengarang</td>
+ 		<td><input type="text" name="c" maxlength="40" required value="<?php echo $row['pengarang']; ?>"></td>
  	</tr>
  		<tr>
- 		<td>Tanggal</td>
- 		<td><input type="date" name="d" maxlength="15" required value="<?php echo $row['tanggaldaftar']; ?>"></td>
+ 		<td>Penerbit</td>
+ 		<td><input type="text" name="d" maxlength="15" required value="<?php echo $row['penerbit']; ?>"></td>
  	</tr>
  		<tr>
- 		<td>Tanggal kadaluarsa</td>
- 		<td><input type="date" name="e" maxlength="15" required value="<?php echo $row['tanggalkadaluarsa']; ?>"></td>
+ 		<td>Tahun terbit</td>
+ 		<td><input type="date" name="e"  required value="<?php echo $row['tahunterbit']; ?>"></td>
  		<tr>
  			<td></td>
  			<td><button type="submit" name="kirim">kirim</button></td>
@@ -114,7 +110,7 @@ td{
  	<?php }; ?>
  </table>
  	</form>
- 	<b class="y">Untuk perubahan nomor anggota silahkan hubungi admin..!</b>
+ 	<b class="y">Untuk perubahan kode pustaka silahkan hubungi admin..!</b>
 </center>
  <div class="p">
       <p >Reprogramed by yoga muhamad aryanto 2021</p>
