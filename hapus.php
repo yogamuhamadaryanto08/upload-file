@@ -1,42 +1,66 @@
 <?php 
-function hapus($ab)
-{
-	global $koneksi;
-	mysqli_query($koneksi, "DELETE  FROM kendaraan WHERE id=$ab");
-	return mysqli_affected_rows($koneksi); 
+require 'fungsi.php';
 
+if (isset($_GET['no'])) {
+	$a=$_GET['no'];
+	if (hapus($a)>0) {
+		echo "<script>
+			alert('berhasil dihapus');
+			document.location.href='anggota/anggota.php';
+		</script>";
+	}
+	else{
+		echo "<script>
+			alert('gagal dihapus');
+			document.location.href='anggota/anggota.php';
+		</script>";
+	}
 }
 
-
-
-
-
-$ab=$_GET['id'];
-$koneksi= new mysqli("localhost", "root", "", "kendaraan");/* baris ini untuk menghubungkan kedatabase */
-
-
-
-
-if (hapus($ab) > 0) {
-	echo "<script> alert(' data BERHASIL dihapus');
-	document.location.href = 'daftar kendaraan dan cari.php';
-	</script>";
-
+if (isset($_GET['no1'])) {
+	$b=$_GET['no1'];
+	if (hapus1($b)>0) {
+		echo "<script>
+			alert('berhasil dihapus');
+			document.location.href='pustaka/pustaka.php';
+		</script>";
+	}
+	else{
+		echo "<script>
+			alert('gagal dihapus');
+			document.location.href='pustaka/pustaka.php';
+		</script>";
+	}
 }
 
-else{
-	echo "<script> alert(' data GAGAL dihapus');
-	document.location.href = 'daftar kendaraan dan cari.php';
-	</script>";
-	
+if (isset($_GET['no2'])) {
+	$c=$_GET['no2'];
+	if (hapus2($c)>0) {
+		echo "<script>
+			alert('berhasil dihapus');
+			document.location.href='pustakawan/pustakawan.php';
+		</script>";
+	}
+	else{
+		echo "<script>
+			alert('gagal dihapus');
+			document.location.href='pustakawan/pustakawan.php';
+		</script>";
+	}
 }
-?>
-
-<?php 
-/*
-halaman ini dibuat oleh yoga muhamad aryanto,
-tanggal 31 mei sampai 1 mei 2021.!!!!
-
- */
-
+if (isset($_GET['no3'])) {
+	$d=$_GET['no3'];
+	if (hapus3($d)>0) {
+		echo "<script>
+			alert('berhasil dihapus');
+			document.location.href='transaksi/transaksi.php';
+		</script>";
+	}
+	else{
+		echo "<script>
+			alert('gagal dihapus');
+			document.location.href='transaksi/transaksi.php';
+		</script>";
+	}
+}
  ?>

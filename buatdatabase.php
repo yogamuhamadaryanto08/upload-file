@@ -1,14 +1,13 @@
 <?php 
-$koneksi=new mysqli("localhost", "root", "", "");
-$buat= "CREATE DATABASE layanangizi";
-$q=$koneksi->query($buat);
-if ($q) {
-	echo "DATABASE berhasil dibuat";
+$koneksi= new mysqli("localhost", "root", "", "");
+$buat= "CREATE DATABASE perpustakaan";
+$cek=$koneksi->query($buat);
+if ($cek) {
+	echo "database berhasil dibuat";
 }
 
 else{
-	echo "DATABASE gagal dibuat";
+	echo "database gagal dibuat";
 }
-
 
  ?>
