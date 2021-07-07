@@ -1,16 +1,16 @@
 <?php 
 require '../fungsi.php';
 if (isset($_POST['kirim'])) {
-if (tambah1($_POST)>0) {
+if (tambah2($_POST)>0) {
 	echo "<script>
 			alert('berhasil ditambah');
-			document.location.href='pustaka.php';
+			document.location.href='pustakawan.php';
 		</script>";
 }
 else{
 		echo "<script>
 			alert('gagal ditambah');
-			document.location.href='pustaka.php';
+			document.location.href='pustakawan.php';
 		</script>";
 }
 }
@@ -21,11 +21,14 @@ else{
  <head>
  	<title></title>
  	<style type="text/css">
-    *{
+ 		*{
       margin: 0;
       padding: 0;
+      font-family: sans-serif;
     }
- 		table{
+
+
+    table{
  			background-color: blue;
  		}
 
@@ -70,33 +73,30 @@ button{
 
 
  	</style>
-   <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+
  </head>
  <body>
- 	 <div class="t"><button><a href="pustaka.php">Kembali</a></button>||<button><a href="../index.html">Halaman awal</a></button></div>
+ 	 <div class="t"><button><a href="../index.html">halaman awal</a></button>||<button><a href="tambah.php">Tambah data</a></button></div>
  	<center>
  		<form action="" method="POST">
  <table>
  	<tr>
- 		<td>Kode pustaka</td>
+ 		<td>Kode pustakawan</td>
  		<td><input type="text" name="a" maxlength="10" required autofocus></td>
  	</tr>
  		<tr>
- 		<td>Judul pustaka</td>
- 		<td><input type="text" name="b" maxlength="100" required></td>
+ 		<td>Nama pustakawan</td>
+ 		<td><input type="text" name="b" maxlength="40" required></td>
  	</tr>
  		<tr>
- 		<td>Pengarang</td>
- 		<td><input type="text" name="c" maxlength="100" required></td>
+ 		<td>Password</td>
+ 		<td><input type="password" name="c" maxlength="30" required></td>
  	</tr>
  		<tr>
- 		<td>Penerbit</td>
- 		<td><input type="text" name="d" maxlength="100" required></td>
+ 		<td>Tanggal</td>
+ 		<td><input type="date" name="d" maxlength="15" required></td>
  	</tr>
- 		<tr>
- 		<td>Tahun terbit</td>
- 		<td><input type="date" name="e" required></td>
  		<tr>
  			<td></td>
  			<td><button type="submit" name="kirim">kirim</button></td>
